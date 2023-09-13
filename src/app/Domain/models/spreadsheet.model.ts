@@ -1,5 +1,5 @@
 export interface Spreadsheet {
-    range: string;
-    majorDimension: string;
-    values: Array<string>;
+  majorDimension: string;
+  range: string;
+  values: Array<string>;
 }
