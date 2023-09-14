@@ -1,5 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { ClothService } from './Data/cloth/cloth.service';
+import { select, Store } from '@ngrx/store';
+import { Subscription } from 'rxjs';
+
+import * as ClothSelector from './Domain/state/cloth/cloth.selector';
+import { AppState } from './Domain/state/app.state';
+import { Dispatchers } from './Domain/state/dispatchers';
 import { Spreadsheet } from './Domain/models/spreadsheet.model';
 
 
@@ -9,10 +14,16 @@ import { Spreadsheet } from './Domain/models/spreadsheet.model';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
-  title = 'clothes-catalog';
-  constructor(private clothService: ClothService) {
+  title: string = 'clothes-catalog';
+  clothes: Spreadsheet = { majorDimension: '', range: '', values: [] };
+  clothes$: Subscription = this.store.pipe(select(ClothSelector.getClothesData))
+    .subscribe((data: Spreadsheet) => {
+      this.clothes = data
+      console.log('.....', this.clothes);
+    });
+  constructor(private dispatchers: Dispatchers, private store: Store<AppState>) {
   }
   ngOnInit(): void {
-    console.log(this.clothService.getSpreetsheet().subscribe((spreadSheet: Spreadsheet) => spreadSheet));
+    this.dispatchers.invokeClothesData();
   }
 }
