@@ -10,7 +10,9 @@ import { Spreadsheet } from '../../Domain/models/spreadsheet.model';
 })
 export class ClothService {
 
-  constructor(private httpClient: HttpClient) { }
+  constructor(private httpClient: HttpClient) {
+  }
+
   getSpreadsheet(): Observable<Spreadsheet> {
     const spreadsheetId: string = environment.spreadsheetId ?? '';
     const spreadsheetName: string = environment.spreadsheetName ?? '';

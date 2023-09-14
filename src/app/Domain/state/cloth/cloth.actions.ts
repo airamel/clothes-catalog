@@ -12,5 +12,5 @@ export const invokeGetClothes = createAction(
 
 export const getClothes = createAction(
   GET_CLOTHES,
-  props<{ clothes: Spreadsheet }>(),
+  props<{ spreadsheet: Spreadsheet }>(),
 );

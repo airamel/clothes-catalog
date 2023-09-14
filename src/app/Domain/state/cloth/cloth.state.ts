@@ -1,9 +1,9 @@
-import { Spreadsheet } from '../../models/spreadsheet.model';
+import { ClothItem } from '../../models/cloth-item.model';
 
 export interface ClothState {
-  clothes: Spreadsheet;
+  clothes: Array<ClothItem>;
 }
 
 export const initialState: ClothState = {
-  clothes: { range: '', majorDimension: '', values: [] },
+  clothes: [],
 }
