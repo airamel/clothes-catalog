@@ -8,6 +8,7 @@ import { StoreModule } from '@ngrx/store';
 import { AppComponent } from './app.component';
 import { appReducer } from './Domain/state/app.state';
 import { AppRoutingModule } from './app-routing.module';
+
 import { CardComponent } from './UI/widgets/card/card.component';
 import { ClothEffect } from './Domain/state/cloth/cloth.effect';
 import { MainComponent } from './UI/main/main.component';
