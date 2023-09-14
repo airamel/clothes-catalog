@@ -2,6 +2,7 @@ import { createReducer, on } from '@ngrx/store';
 
 import * as ClothActions from './cloth.actions';
 import { ClothState, initialState } from './cloth.state';
+import { ClothItem } from '../../models/cloth-item.model';
 
 const _clothReducer = createReducer(
   initialState,
@@ -15,10 +16,25 @@ const _clothReducer = createReducer(
   // Get forecast data
   on(
     ClothActions.getClothes,
-    (state: ClothState, { clothes }) => {
+    (state: ClothState, { spreadsheet }) => {
+      // Map the values from the spreadsheet to an array of Cloth items, removes the first item which contains the
+      // headers of the spreadsheet
+      const clothItems: ClothItem[] = [...spreadsheet.values].reduce(
+        (accumulator: ClothItem[], currentValue: string[]) => {
+          accumulator.push({
+            cloth: currentValue[3],
+            brand: currentValue[5],
+            description: currentValue[6],
+            color: currentValue[8],
+            size: currentValue[9],
+            price: currentValue[11],
+            status: currentValue[13],
+          });
+          return accumulator;
+        }, []).slice(1);
       return {
         ...state,
-        clothes,
+        clothes: clothItems,
       };
     }
   )

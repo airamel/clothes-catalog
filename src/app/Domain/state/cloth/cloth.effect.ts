@@ -1,9 +1,10 @@
 import { Actions, createEffect, ofType } from '@ngrx/effects';
-import { exhaustMap, map } from 'rxjs';
+import { catchError, exhaustMap, map } from 'rxjs';
 import { Injectable } from '@angular/core';
 
 import * as ClothActions from '../cloth/cloth.actions';
 import { ClothService } from '../../../Data/cloth/cloth.service';
+import { Spreadsheet } from '../../models/spreadsheet.model';
 
 @Injectable({ providedIn: 'root' })
 export class ClothEffect {
@@ -15,10 +16,11 @@ export class ClothEffect {
           return this.clothService
             .getSpreadsheet()
             .pipe(
-              map((spreadsheetData) => {
+              map((spreadsheetData: Spreadsheet) => {
+                console.log('xxxx', spreadsheetData);
                 return ({
                   type: ClothActions.GET_CLOTHES,
-                  clothes: spreadsheetData,
+                  spreadsheet: spreadsheetData,
                 });
               })
             )
