@@ -1,0 +1,95 @@
+  $background: #D8E3FA;
+  $gray: #EAEAEC;
+  $primary: #29283F;
+  $primary-violet: #7370F4;
+
+
+body {
+  background-color: $background;
+}
+
+* {
+  margin: 0px;
+  padding: 0px;
+}
+
+.card {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  border-radius: 24px;
+  background-color: white;
+  cursor: pointer;
+  overflow: hidden;
+  max-width: clamp(320px, 45vw, 740px);
+  min-width: 320px;
+  min-height: 280px;
+
+  &:hover {
+    box-shadow: rgba(0, 0, 0, 0.3)
+    0px 5px 15px;
+  }
+}
+
+.background {
+  flex: 1 1 250px;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+.content {
+  flex: 3 1 350px;
+  display: flex;
+  flex-direction: column;
+  //justify-content: start;
+  padding: 16px;
+
+  h2 {
+    font-size: clamp (1.3rem, 2.5vw, 1.8rem);
+    font-weight: 700;
+    margin-bottom: clamp (0.35rem, 2vw, 0.55rem);
+  }
+
+  p {
+    font-size: clamp(1rem, 1.7vw, 1.1rem);
+    font-weight: 400;
+    margin: 6px 0;
+  }
+
+  a {
+    color: $primary-violet;
+  }
+}
+
+.chips {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  list-style-type: none;
+  padding: 12px 0px 16px 0px;
+}
+
+.chip {
+  border-radius: 12px;
+  padding: 10px;
+  font-size: 15px;
+  background-color: $gray;
+  transition: all 0.3s;
+  font-weight: 500;
+
+  &:hover {
+    background-color: $primary-violet;
+    color: $gray;
+  }
+}
+
+
+
+
+
+
+

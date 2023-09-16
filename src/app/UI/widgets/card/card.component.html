@@ -1,1 +1,32 @@
-<p>card works!</p>
+<!--span>{{ data.cloth }} {{ data.brand }} {{ data.description }} {{ data.color }} {{ data.size }} {{ data.price }} {{ data.status }} {{ data.photo}}</span-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Card Clothes</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins&display=swap">
+  <link rel="stylesheet" href="card.component.scss">
+</head>
+<body>
+  <div class="container">
+    <article class="card">
+      <div class="background">
+        <img src= {{data.photo}} alt="">
+      </div>
+      <div class="content">
+        <h2>{{ data.cloth}}</h2>
+        <p>{{ data.description }}</p>
+        <p>{{ data.color }}</p>
+        <ul class="chips">
+          <li class="chip">{{data.brand}}</li>
+          <li class="chip">{{data.size}}</li>
+          <li class="chip">{{data.price}}</li>
+        </ul>
+      </div>
+    </article>
+  </div>
+  
+</body>
+</html>

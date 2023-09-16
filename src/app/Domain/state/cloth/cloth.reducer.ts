@@ -19,6 +19,7 @@ const _clothReducer = createReducer(
     (state: ClothState, { spreadsheet }) => {
       // Map the values from the spreadsheet to an array of Cloth items, removes the first item which contains the
       // headers of the spreadsheet
+      const value = 'Disponible';
       const clothItems: ClothItem[] = [...spreadsheet.values].reduce(
         (accumulator: ClothItem[], currentValue: string[]) => {
           accumulator.push({
@@ -29,8 +30,9 @@ const _clothReducer = createReducer(
             size: currentValue[9],
             price: currentValue[11],
             status: currentValue[13],
+            photo: currentValue[15],
           });
-          return accumulator;
+          return accumulator.filter(accumulator => accumulator.status == "Disponible");
         }, []).slice(1);
       return {
         ...state,
