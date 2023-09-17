@@ -33,7 +33,7 @@ const _clothReducer = createReducer(
             photo: currentValue[15],
           });
           return accumulator.filter(accumulator => accumulator.status == "Disponible");
-        }, []).slice(1);
+        }, []).slice(0);
       return {
         ...state,
         clothes: clothItems,
