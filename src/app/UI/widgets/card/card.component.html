@@ -1,1 +1,17 @@
-<p>card works!</p>
+<div class="container">
+  <article class="card">
+    <div class="background">
+      <img class="background--img" [src]="data.photo" [alt]="data.description">
+    </div>
+    <div class="content">
+      <h2 class="content--h2">{{ data.cloth}}</h2>
+      <p class="content--p">{{ data.description }}</p>
+      <p class="content--p">{{ data.color }}</p>
+      <ul class="chips">
+        <li class="chip">{{data.brand}}</li>
+        <li class="chip">{{data.size}}</li>
+        <li class="chip">{{data.price}}</li>
+      </ul>
+    </div>
+  </article>
+</div>
