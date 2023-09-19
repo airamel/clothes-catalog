@@ -36,20 +36,16 @@ $primary-violet: #7370F4;
   flex-direction: column;
   padding: 16px;
 
-  h2 {
+  &--h2 {
     font-size: clamp (1.3rem, 2.5vw, 1.8rem);
     font-weight: 700;
     margin-bottom: clamp (0.35rem, 2vw, 0.55rem);
   }
 
-  p {
+  &--p {
     font-size: clamp(1rem, 1.7vw, 1.1rem);
     font-weight: 400;
     margin: 6px 0;
-  }
-
-  a {
-    color: $primary-violet;
   }
 }
 
@@ -74,10 +70,3 @@ $primary-violet: #7370F4;
     color: $gray;
   }
 }
-
-
-
-
-
-
-
