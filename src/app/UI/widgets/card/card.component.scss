@@ -1,17 +1,6 @@
-  $background: #D8E3FA;
-  $gray: #EAEAEC;
-  $primary: #29283F;
-  $primary-violet: #7370F4;
-
-
-body {
-  background-color: $background;
-}
-
-* {
-  margin: 0px;
-  padding: 0px;
-}
+$gray: #EAEAEC;
+$primary: #29283F;
+$primary-violet: #7370F4;
 
 .card {
   display: flex;
@@ -34,7 +23,7 @@ body {
 .background {
   flex: 1 1 250px;
 
-  img {
+  &--img {
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -45,7 +34,6 @@ body {
   flex: 3 1 350px;
   display: flex;
   flex-direction: column;
-  //justify-content: start;
   padding: 16px;
 
   h2 {
