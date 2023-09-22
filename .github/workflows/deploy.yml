@@ -4,4 +4,54 @@ name: Angular-CI
 #Controls when the workflow will run
 on:
   # Triggers the workflow on push or pull request events but only for the "master" branch
+  push:
+    branches: [ "master" ]
+  pull_request:
+    branches: [ "master" ]
+
+  # A workflow run id made up one or more jobs that can run sequentially or in parallel
+  jobs:
+    # This workflow contains a single job called "build"
+    build:
+    # The type of runner that the job will run on 
+      runs-on: ubuntu-latest
+
+      # Steps represent a sequence of tasks that will be executed as part of the job 
+      steps: 
+        # Checks-out your repository under $GITHUB_WORKSPACE, so the job can access it
+        - name: Checkout
+          uses: actions/checkout@v4.1.0
+        # Setup nodeJS
+        - name: Setup nodejs
+          uses: actions/setup-node@v3.8.1
+          with:
+            node-version: "18"
+        # Install dependencies
+        - name: Install Dependencies
+          run: npm i
+        # Build app por production
+        - name: Build app bundle
+          run: npm run build:prod
+        #Replace the secret variables
+        - name: Replace secret
+        uses: cschleiden/replace-tokens@v1
+        with:
+          tokenPrefix: '{'
+          tokenSuffix: '}'
+          files: 'src/environments/environment.ts'
+        env:
+          SPREADSHEETID: ${{ secrets.SPREADSHEETID }}
+          SPREADSHEETNAME: ${{ secrets.SPREADSHEETNAME }}
+          SPREADSHEETAPIKEY: ${{ secrets.SPREADSHEETAPIKEY }}
+        #Deploy to Github pages
+        - name: Deploy to Pages
+        uses: crazy-max/ghaction-github-pages@v3
+        with:
+          target_branch: gh-pages
+          build_dir: dist/clothes-catalog
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        
+            
+    
   
