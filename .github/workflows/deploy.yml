@@ -34,23 +34,23 @@ on:
           run: npm run build:prod
         #Replace the secret variables
         - name: Replace secret
-        uses: cschleiden/replace-tokens@v1
-        with:
-          tokenPrefix: '{'
-          tokenSuffix: '}'
-          files: 'src/environments/environment.ts'
-        env:
-          SPREADSHEETID: ${{ secrets.SPREADSHEETID }}
-          SPREADSHEETNAME: ${{ secrets.SPREADSHEETNAME }}
-          SPREADSHEETAPIKEY: ${{ secrets.SPREADSHEETAPIKEY }}
+          uses: cschleiden/replace-tokens@v1.2
+          with:
+            tokenPrefix: '{'
+            tokenSuffix: '}'
+            files: 'src/environments/environment.ts'
+          env:
+            SPREADSHEETID: ${{ secrets.SPREADSHEETID }}
+            SPREADSHEETNAME: ${{ secrets.SPREADSHEETNAME }}
+            SPREADSHEETAPIKEY: ${{ secrets.SPREADSHEETAPIKEY }}
         #Deploy to Github pages
         - name: Deploy to Pages
-        uses: crazy-max/ghaction-github-pages@v3
-        with:
-          target_branch: gh-pages
-          build_dir: dist/clothes-catalog
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          uses: crazy-max/ghaction-github-pages@v3
+          with:
+            target_branch: gh-pages
+            build_dir: dist/clothes-catalog
+          env:
+            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         
             
     
