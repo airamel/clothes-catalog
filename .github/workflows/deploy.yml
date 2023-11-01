@@ -12,10 +12,10 @@ on:
   # A workflow run id made up one or more jobs that can run sequentially or in parallel
 jobs:
   build-and-deploy:
-    # The type of runner that the job will run on 
+    # The type of runner that the job will run on
     runs-on: ubuntu-latest
-      # Steps represent a sequence of tasks that will be executed as part of the job 
-    steps: 
+      # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
         # Checks-out your repository under $GITHUB_WORKSPACE, so the job can access it
       - name: Checkout
         uses: actions/checkout@v4.1.0
@@ -29,7 +29,7 @@ jobs:
         run: npm i
         # Build app por production
       - name: Build app bundle
-        run: npm run build:prod
+        run: npm run build
         #Replace the secret variables
       - name: Replace secret
         uses: cschleiden/replace-tokens@v1.2
@@ -49,7 +49,7 @@ jobs:
           build_dir: dist/clothes-catalog
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        
-            
-    
-  
+
+
+
+
