@@ -29,7 +29,7 @@ jobs:
         run: npm i
         # Build app por production and create environment file
       - name: Build app bundle
-        run: npm run build && touch src/environments/environment.ts
+        run: npm run build && touch src/environments/environment.ts && ls
         #Replace the secret variables
       - name: Replace secret
         uses: cschleiden/replace-tokens@v1.2
