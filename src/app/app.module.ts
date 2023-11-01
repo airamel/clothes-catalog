@@ -12,6 +12,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { CardComponent } from './UI/widgets/card/card.component';
 import { ClothEffect } from './Domain/state/cloth/cloth.effect';
 import { MainComponent } from './UI/main/main.component';
+import { NgOptimizedImage } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -20,12 +21,13 @@ import { MainComponent } from './UI/main/main.component';
     MainComponent
   ],
   imports: [
-    BrowserModule,
     AppRoutingModule,
-    HttpClientModule,
-    StoreModule.forRoot(appReducer, {}),
+    BrowserModule,
     EffectsModule.forRoot([ ClothEffect ]),
-    StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: !isDevMode() })
+    HttpClientModule,
+    NgOptimizedImage,
+    StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: !isDevMode() }),
+    StoreModule.forRoot(appReducer, {}),
   ],
   providers: [],
   bootstrap: [AppComponent]
