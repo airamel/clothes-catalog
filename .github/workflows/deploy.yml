@@ -24,12 +24,15 @@ jobs:
         uses: actions/setup-node@v3.8.1
         with:
           node-version: "18"
+        # Create environment file
+      - name: Create environment file
+        run: touch src/environments/environment.ts
         # Install dependencies
       - name: Install Dependencies
         run: npm i
         # Build app por production and create environment file
       - name: Build app bundle
-        run: npm run build && touch src/environments/environment.ts && ls
+        run: npm run build
         #Replace the secret variables
       - name: Replace secret
         uses: cschleiden/replace-tokens@v1.2
