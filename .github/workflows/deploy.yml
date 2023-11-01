@@ -27,9 +27,9 @@ jobs:
         # Install dependencies
       - name: Install Dependencies
         run: npm i
-        # Build app por production
+        # Build app por production and create environment file
       - name: Build app bundle
-        run: npm run build
+        run: npm run build && touch src/environments/environment.ts
         #Replace the secret variables
       - name: Replace secret
         uses: cschleiden/replace-tokens@v1.2
