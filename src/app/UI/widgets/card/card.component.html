@@ -1,7 +1,13 @@
 <div class="container">
   <article class="card">
     <div class="background">
-      <img class="background--img" [src]="data.photo" [alt]="data.description">
+      <img
+        [alt]="data.description"
+        [ngSrc]="data.photo ?? ''"
+        class="background--img"
+        height="660"
+        loading="lazy"
+        width="660">
     </div>
     <div class="content">
       <h2 class="content--h2">{{ data.cloth}}</h2>

@@ -17,7 +17,6 @@ export class ClothEffect {
             .getSpreadsheet()
             .pipe(
               map((spreadsheetData: Spreadsheet) => {
-                console.log('xxxx', spreadsheetData);
                 return ({
                   type: ClothActions.GET_CLOTHES,
                   spreadsheet: spreadsheetData,
